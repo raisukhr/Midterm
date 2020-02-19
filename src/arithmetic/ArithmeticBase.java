@@ -10,30 +10,46 @@ import java.util.Scanner;
 /** This class takes String input plus,minus,divide and times
  * from user and execute the arithmetic operation
  * change the code to use enum instead String and add object oriented principles satisfy as comment in the code
- * @author sivagamasrinivasan
+ * @author sivagamasrinivasan modified by Sukhreet
  * date 02/19
  */
 public class ArithmeticBase 
 {
- public double x,y;
-    double calculate(double x, double y) 
-        {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("enter String");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
-        {
-            case "PLUS":
-                return x + y;
-            case "MINUS":
-                return x - y;
-            case "TIMES":
-                return x * y;
-            case "DIVIDE":
-                return x / y;
-            default:
-                throw new AssertionError("Unknown operations " + this);
-        }
+   public enum Operation {PLUS,MINUS,DIVIDE,TIMES};
+   public enum Value{NUM1,NUM2};
+   private Operation operation;
+   private Value value;
+   public ArithmeticBase(Operation operation,Value value)
+   {
+     this.operation=operation;
+     this.value=value;
+   }
+
+    /**
+     * @return the operation
+     */
+    public Operation getOperation() {
+        return operation;
     }
-   
+
+    /**
+     * @param operation the operation to set
+     */
+    public void setOperation(Operation operation) {
+        this.operation = operation;
+    }
+
+    /**
+     * @return the value
+     */
+    public Value getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(Value value) {
+        this.value = value;
+    }
 }
